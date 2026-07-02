@@ -23,9 +23,6 @@ def preprocess_data():
     for column in categorical_columns:
         df[column] = encoder.fit_transform(df[column].astype(str))
 
-    print(df.head())
-    print()
-    print(df.dtypes)
 
     X = df.drop("Churn", axis=1)
     y = df["Churn"]
