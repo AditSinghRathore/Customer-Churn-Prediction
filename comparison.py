@@ -90,3 +90,7 @@ print("f1_score",f1score)
 print("roc_auc_score",ras)
 
 print("======================================================")
+
+#since Logistic Regression model is performing the best we will save that model as well
+
+joblib.dump(lrmodel,"models/logistic_regression.pkl")
