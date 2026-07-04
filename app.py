@@ -42,7 +42,8 @@ def predict():
 
     return render_template(
         "index.html",
-        prediction=prediction
+        prediction=prediction,
+        customer_data=customer_data
     )
 
 
