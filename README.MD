@@ -37,7 +37,7 @@
     ├── app.py
     ├── predict.py 
     ├── preprocess.py : preprocesses the data
-    ├── train.py : Trains the machine learning model and saves the selected model as a .pkl file.
+    ├── train.py : Trains the machine learning model and saves the selected model as a .pkl file.(Model Accuracy: 0.8155)
     ├── comparison.py : used for comparing models
     │
     ├── models/

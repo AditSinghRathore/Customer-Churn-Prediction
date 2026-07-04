@@ -1,8 +1,9 @@
+import os
+import joblib
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 
 def preprocess_data():
@@ -19,13 +20,19 @@ def preprocess_data():
     # Fill missing values
     df["TotalCharges"] = df["TotalCharges"].fillna(df["TotalCharges"].median())
 
-    # Encode categorical columns
-    encoder = LabelEncoder()
+    # Dictionary to store encoders
+    encoders = {}
 
+    # Encode categorical columns
     categorical_columns = df.select_dtypes(include=["object", "string"]).columns
 
     for column in categorical_columns:
+
+        encoder = LabelEncoder()
+
         df[column] = encoder.fit_transform(df[column].astype(str))
+
+        encoders[column] = encoder
 
     # Features and target
     X = df.drop("Churn", axis=1)
@@ -39,13 +46,20 @@ def preprocess_data():
         random_state=42
     )
 
-    # Feature scaling
+    # Feature Scaling
     scaler = StandardScaler()
 
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
 
-    return X_train, X_test, y_train, y_test, scaler
+    # Create models directory
+    os.makedirs("models", exist_ok=True)
+
+    # Save scaler and encoders
+    joblib.dump(scaler, "models/scaler.pkl")
+    joblib.dump(encoders, "models/encoders.pkl")
+
+    return X_train, X_test, y_train, y_test
 
 
 if __name__ == "__main__":
