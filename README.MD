@@ -1,10 +1,24 @@
+## Introduction:
+    Customer Churn Prediction is machine Learning model using Logistic regression model to predict Customer Churn Risk. Project is tested and deployed with the best performing model with accuracy of 81.54 %. 
 
+## Tech Stack
 
-    Architechture:
+- Python
+- Flask
+- Scikit-learn
+- Pandas
+- NumPy
+- HTML
+- CSS
+- Git
+- GitHub
+- Render
+
+## Architechture:
     3 layer architechture:
         
         1.Presentation layer: Frontend
-            - HTML form accepts the prediction details
+            - HTML form collects input for prediction send it to flask
         2.Application layer: Flask
             - Recieves request.
             - Validates input.
@@ -13,6 +27,8 @@
             - Loads the trained Logistic Regression model.
             - Predicts customer churn.
             - Returns the prediction.
+
+## WorkFlow:
 
     User
     │
@@ -31,7 +47,7 @@
     ▼
     Prediction
 
-    Project Structure:
+## Project Structure:
     CustomerChurnPrediction/
     │
     ├── app.py

@@ -20,7 +20,7 @@ print("======================================================")
 #training logistic regression model
 
 #get preprocessed data
-X_train, X_test, y_train, y_test, scaler = preprocess_data()
+X_train, X_test, y_train, y_test = preprocess_data()
 
 #create model
 lrmodel = LogisticRegression()
@@ -72,25 +72,25 @@ print("roc_auc_score",k_ras)
 
 print("======================================================")
 
-print("Decision tree score:")
-model = joblib.load("models/decision_tree.pkl")
+# print("Decision tree score:")
+# model = joblib.load("models/decision_tree.pkl")
 
-y_pred = model.predict(X_test)
+# y_pred = model.predict(X_test)
 
-accuracy = accuracy_score(y_test,y_pred)
-precision = precision_score(y_test,y_pred)
-recall = recall_score(y_test,y_pred)
-f1score = f1_score(y_test,y_pred)
-ras = roc_auc_score(y_test,y_pred)
+# accuracy = accuracy_score(y_test,y_pred)
+# precision = precision_score(y_test,y_pred)
+# recall = recall_score(y_test,y_pred)
+# f1score = f1_score(y_test,y_pred)
+# ras = roc_auc_score(y_test,y_pred)
 
-print("accuracy",accuracy)
-print("precision",precision)
-print("recall", recall)
-print("f1_score",f1score)
-print("roc_auc_score",ras)
+# print("accuracy",accuracy)
+# print("precision",precision)
+# print("recall", recall)
+# print("f1_score",f1score)
+# print("roc_auc_score",ras)
 
-print("======================================================")
+# print("======================================================")
 
-#since Logistic Regression model is performing the best we will save that model as well
+#since Logistic Regression model is performing the best we will use it.
 
 joblib.dump(lrmodel,"models/logistic_regression.pkl")
