@@ -1,7 +1,10 @@
+## Live Link:
+https://customer-churn-prediction-0vo0.onrender.com
+
 ## Introduction:
     Customer Churn Prediction is machine Learning model using Logistic regression model to predict Customer Churn Risk. Project is tested and deployed with the best performing model with accuracy of 81.54 %. 
 
-## Tech Stack
+## Tech Stack:
 
 - Python
 - Flask
